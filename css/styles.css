@@ -136,18 +136,11 @@ a {
 }
 
 .brand-mark {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--clay);
-  position: relative;
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
   flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  color: var(--paper);
-  font-family: 'Instrument Serif';
-  font-size: 22px;
-  font-style: italic;
+  object-fit: contain;
 }
 
 .brand-name {
@@ -255,6 +248,64 @@ a {
   font-size: 13px;
 }
 
+/* ---------- INSTAGRAM BUTTON ---------- */
+.btn.instagram {
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  border: none;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 16px rgba(131, 58, 180, 0.35),
+    0 0 32px rgba(253, 29, 29, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn.instagram .ig-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+}
+
+/* animated shimmer sweep */
+.btn.instagram::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.25) 50%,
+      transparent 100%);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn.instagram:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 0 24px rgba(131, 58, 180, 0.5),
+    0 0 48px rgba(253, 29, 29, 0.25),
+    0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.btn.instagram:hover::after {
+  animation: ig-shimmer 0.6s ease forwards;
+}
+
+@keyframes ig-shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
 /* ---------- HERO ---------- */
 .hero {
   position: relative;
@@ -306,10 +357,12 @@ a {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     box-shadow: 0 0 0 4px rgba(194, 94, 42, 0.18);
   }
+
   50% {
     box-shadow: 0 0 0 8px rgba(194, 94, 42, 0.02);
   }
@@ -472,6 +525,7 @@ a {
     min-height: auto;
     padding: 120px 0 60px;
   }
+
   .hero-visual {
     min-height: 420px;
   }
@@ -481,18 +535,23 @@ a {
   .hero-visual {
     min-height: 380px;
   }
+
   .hero-img.a {
     width: 72%;
   }
+
   .hero-img.b {
     width: 50%;
   }
+
   .hero-img.c {
     width: 55%;
   }
+
   .hero-meta {
     gap: 24px;
   }
+
   .hero-meta .m .val {
     font-size: 24px;
   }
@@ -590,11 +649,11 @@ a {
   align-items: center;
 }
 
-.chapter.reverse .chapter-grid > .chapter-media {
+.chapter.reverse .chapter-grid>.chapter-media {
   order: 2;
 }
 
-.chapter.reverse .chapter-grid > .chapter-body {
+.chapter.reverse .chapter-grid>.chapter-body {
   order: 1;
 }
 
@@ -602,11 +661,13 @@ a {
   .chapter {
     padding: 64px 0;
   }
+
   .chapter-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  .chapter.reverse .chapter-grid > .chapter-media {
+
+  .chapter.reverse .chapter-grid>.chapter-media {
     order: 0;
   }
 }
@@ -695,6 +756,7 @@ a {
     left: -12px;
     bottom: -12px;
   }
+
   .chapter-stamp .big {
     font-size: 24px;
   }
@@ -834,6 +896,7 @@ a {
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(100%);
   }
